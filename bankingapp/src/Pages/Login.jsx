@@ -52,9 +52,9 @@ export default function Login() {
         .min(6, "Password must be at least 6 characters."),
     }),
     onSubmit: (values, action) => {
-      console.log(values);
+      // console.log(values);
       axios({
-          method: "get",
+        method: "get",
         baseURL: `${process.env.REACT_APP_JSON_SERVER_PORT}`,
         url: `/users`,
         data: {
@@ -64,10 +64,11 @@ export default function Login() {
       })
         .then((res) => {
           console.log(res);
+          console.log(res.statusText);
           let title = "";
           let statusflag = "";
-          if (res.statusText === "Created") {
-            title = "Account created.";
+          if (res.statusText === "OK") {  
+            title = "Account Loged in.";
             statusflag = "success";
           } else {
             title = "Account not created. Please try again.";
