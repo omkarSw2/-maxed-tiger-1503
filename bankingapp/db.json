@@ -10,22 +10,6 @@
       "password": "omkarcoder",
       "phone": "9986062050",
       "userName": "omkar@1134"
-    },
-    {
-      "firstName": "sanjay",
-      "lastName": "walavalkar",
-      "userName": "omkarsanjay",
-      "email": "omkar@gmail.com",
-      "password": "omkar@gmail.com",
-      "confirmPassword": "omkar@gmail.com",
-      "dateOfBirth": "2023-05-12",
-      "phone": "9955662233",
-      "id": 2
-    },
-    {
-      "password": "omkarcoder",
-      "email": "omkar@gmail.com",
-      "id": 3
     }
   ],
   "profile": {
