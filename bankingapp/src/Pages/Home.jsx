@@ -8,7 +8,9 @@ import {
   HStack,
   Heading,
   IconButton,
+  Image,
   Input,
+  Stack,
 } from "@chakra-ui/react";
 import React from "react";
 import { SimpleSlider } from "../Componants/Carousel/Carousel";
@@ -24,6 +26,7 @@ import {
   SiFlipkart,
   SiStarbucks,
 } from "react-icons/si";
+import PartnarAtaras from "../Componants/Cards/PartnarAtaras";
 
 export default function Home() {
   const { login, logout, isAuth } = useContext(LoginAuth);
@@ -75,6 +78,7 @@ export default function Home() {
         <Heading fontFamily={"initial"} mb={"5"}>
           Your personal offers are ready
         </Heading>
+
         <Divider
           m={"5"}
           colorScheme="purple"
@@ -112,43 +116,28 @@ export default function Home() {
             </Heading>
             <HStack>
               <Divider borderWidth={"3px"} />
-              <Avatar
-                size="lg"
-                bg={"white"}
-                // name="Segun Adebayo"
-                icon={<SiAdidas color="black" />}
-              />
-              <Avatar
-                bg={"white"}
-                size="lg"
-                // name="Segun Adebayo"
-                icon={<SiApple color="black" />}
-              />
-              <Avatar
-                size="lg"
-                bg={"white"}
-                icon={<SiSamsung color="black" />}
-              />
-              <Avatar size="lg" bg={"white"} icon={<SiPuma color="black" />} />
-              <Avatar
-                size="lg"
-                bg={"white"}
-                icon={<SiAmazon color="black" />}
-              />
-              <Avatar
-                size="lg"
-                bg={"white"}
-                icon={<SiFlipkart color="black" />}
-              />
-              <Avatar
-                size="lg"
-                bg={"white"}
-                icon={<SiStarbucks color="black" />}
-              />
+              <PartnarAtaras />
               <Divider borderWidth={"3px"} />
             </HStack>
           </Container>
         </Box>
+        <Heading fontFamily={"initial"} mb={"5"} mt={"5"}>
+          Cash loan
+        </Heading>
+        <Divider borderWidth={"3px"} />
+
+        <Stack direction={["column", "row"]} spacing="24px" mt={"5"}>
+          <Box>
+            <Image
+              src={
+                "https://plus.unsplash.com/premium_photo-1682339292058-37fcc96d04c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+              }
+              alt="atmadd"
+              borderRadius={"lg"}
+            />
+          </Box>
+          <Box>2</Box>
+        </Stack>
       </Container>
     </>
   );
