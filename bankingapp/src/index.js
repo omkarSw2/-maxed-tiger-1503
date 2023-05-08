@@ -6,16 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import LoginAuthContextProvider from "./Auth/LoginAuthContext/LoginAuth";
+import UserInfo from "./Auth/UsenAuthInfo/UserInfo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider>
     <LoginAuthContextProvider>
-      <BrowserRouter>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </BrowserRouter>
+      <UserInfo>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
+      </UserInfo>
     </LoginAuthContextProvider>
   </ChakraProvider>
 );

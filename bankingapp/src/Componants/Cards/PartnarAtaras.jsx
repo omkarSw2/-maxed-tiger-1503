@@ -46,8 +46,8 @@ export default function PartnarAtaras() {
   return (
     <>
       {partnerlogos.map((item) => (
-        <Link href={item.to} isExternal>
-          <Avatar
+        <Link href={item.to} isExternal key={Date.now() + item.id}>
+          <Avatar 
             size="lg"
             bg={"white"}
             // name="Segun Adebayo"

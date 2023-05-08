@@ -24,9 +24,10 @@ import {
 } from "@chakra-ui/react";
 import SignInPage from "../../Pages/SigninPage";
 import Login from "../../Pages/Login";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LoginAuth } from "../../Auth/LoginAuthContext/LoginAuth";
+import { AuthUserDetails } from "../../Auth/UsenAuthInfo/UserInfo";
 
 const navlinks = [
   {
@@ -63,7 +64,10 @@ const navlinks = [
 
 export default function NavBar() {
   const { isAuth, login, logout } = useContext(LoginAuth);
+  const { deleteUserInfo, userDetails } = useContext(AuthUserDetails);
   const { colorMode, toggleColorMode } = useColorMode();
+
+  console.log(userDetails);
   /*
    *for logout button  use
    */
@@ -139,7 +143,12 @@ export default function NavBar() {
                         Are you sure you want to Logout your Account ?
                       </AlertDialogBody>
                       <AlertDialogFooter>
-                        <Button colorScheme="red" onClick={() => logout()}>
+                        <Button
+                          colorScheme="red"
+                          onClick={() => {
+                            logout();
+                            deleteUserInfo(null);
+                          }}>
                           Yes
                         </Button>
                         <Button ml={3} ref={cancelRef} onClick={onClose}>
@@ -150,17 +159,18 @@ export default function NavBar() {
                   </AlertDialog>
                   {/* Logout Button Ends  */}
                   {/* Avtar Strts */}
-                  <Tooltip
-                    label="omkar Walvalkar"
-                    placement="bottom-end"
-                    bg="blue.300"
-                    fontSize="md">
-                    <Avatar
-                      name="Omkar walavlakr"
-                      // src="https://bit.ly/code-beast"
-                      size="sm"
-                    />
-                  </Tooltip>
+                  {userDetails.map((item) => (
+                    <Tooltip
+                      label={`${item.firstName} ${item.lastName}`}
+                      placement="bottom-end"
+                      bg="blue.300"
+                      fontSize="md">
+                      <Avatar
+                        name={`${item.firstName} ${item.lastName}`}
+                        size="sm"
+                      />
+                    </Tooltip>
+                  ))}
                   {/* Avtar Ends */}
                 </Flex>
               </Box>
