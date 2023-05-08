@@ -1,9 +1,5 @@
-import { Formik, Field } from "formik";
 import {
-  Box,
   Button,
-  Checkbox,
-  Flex,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -16,16 +12,20 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  FormHelperText,
   useToast,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { AuthUserDetails } from "../Auth/UsenAuthInfo/UserInfo";
+import { useContext } from "react";
+import { LoginAuth } from "../Auth/LoginAuthContext/LoginAuth";
 
 export default function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
+  const { saveUserinfo } = useContext(AuthUserDetails);
+  const { login } = useContext(LoginAuth);
 
   const handleToast = ({ title, statusflag }) => {
     toast({
@@ -64,12 +64,14 @@ export default function Login() {
       })
         .then((res) => {
           console.log(res);
-          console.log(res.statusText);
+          console.log(res.status);
+          saveUserinfo(res.data);
           let title = "";
           let statusflag = "";
-          if (res.statusText === "OK") {  
+          if (res.status === 200 || 201) {
             title = "Account Loged in.";
             statusflag = "success";
+            login();
           } else {
             title = "Account not created. Please try again.";
             statusflag = "warning";
@@ -86,7 +88,7 @@ export default function Login() {
         });
     },
   });
-
+  // console.log(process.env.REACT_APP_JSON_SERVER_PORT);
   return (
     <>
       <Button onClick={onOpen} size={"sm"} colorScheme={"blue"}>
@@ -136,7 +138,7 @@ export default function Login() {
                 mr={3}
                 type="submit"
                 onClick={formik.handleSubmit}>
-                Save
+                Login
               </Button>
               <Button onClick={onClose}>Cancel</Button>
             </ModalFooter>

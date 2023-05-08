@@ -102,10 +102,10 @@ function SignInPage() {
         data: values,
       })
         .then((res) => {
-          console.log(res.statusText);
+          console.log(res);
           let title = "";
           let statusflag = "";
-          if (res.statusText === "Created") {
+          if (res.status === 200||201) {
             title = "Account created.";
             statusflag = "success";
           } else {
@@ -121,7 +121,7 @@ function SignInPage() {
             statusflag: "error",
           });
         });
-    
+
       // actions.resetForm();
     },
   });

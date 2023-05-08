@@ -1,21 +1,6 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import HomeCardContent from "./HomeCardContent";
-import { Link } from "react-router-dom";
-import { m } from "framer-motion";
 
 const HomeCardArray = [
   {
@@ -68,7 +53,6 @@ export default function HomeCard() {
   const settings = {
     dots: true,
     infinite: false,
-    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -107,7 +91,7 @@ export default function HomeCard() {
     <Slider {...settings}>
       {/* <Stack direction={"row"} m={5} overflowX="auto"> */}
       {HomeCardArray.map((carditems) => (
-        <HomeCardContent {...carditems} />
+        <HomeCardContent {...carditems} key={carditems.title} />
       ))}
     </Slider>
   );

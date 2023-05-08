@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Center,
@@ -7,7 +6,6 @@ import {
   Divider,
   HStack,
   Heading,
-  IconButton,
   Image,
   Input,
   Stack,
@@ -17,15 +15,7 @@ import { SimpleSlider } from "../Componants/Carousel/Carousel";
 import { useContext } from "react";
 import { LoginAuth } from "../Auth/LoginAuthContext/LoginAuth";
 import HomeCard from "../Componants/Cards/HomeCard";
-import {
-  SiApple,
-  SiAdidas,
-  SiSamsung,
-  SiPuma,
-  SiAmazon,
-  SiFlipkart,
-  SiStarbucks,
-} from "react-icons/si";
+
 import PartnarAtaras from "../Componants/Cards/PartnarAtaras";
 
 export default function Home() {
@@ -133,10 +123,20 @@ export default function Home() {
                 "https://plus.unsplash.com/premium_photo-1682339292058-37fcc96d04c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
               }
               alt="atmadd"
+              objectFit="cover"
               borderRadius={"lg"}
             />
           </Box>
-          <Box>2</Box>
+          <Box>
+            <Image
+              src={
+                "https://images.unsplash.com/photo-1607863680198-23d4b2565df0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+              }
+              alt="atmadd"
+              objectFit="cover"
+              borderRadius={"lg"}
+            />
+          </Box>
         </Stack>
       </Container>
     </>
