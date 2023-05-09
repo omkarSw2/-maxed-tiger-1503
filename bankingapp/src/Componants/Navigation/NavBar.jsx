@@ -6,7 +6,7 @@ import {
   Input,
   Heading,
   Button,
-  WrapItem,
+
   Avatar,
   useColorMode,
   IconButton,
@@ -24,7 +24,7 @@ import {
 } from "@chakra-ui/react";
 import SignInPage from "../../Pages/SigninPage";
 import Login from "../../Pages/Login";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LoginAuth } from "../../Auth/LoginAuthContext/LoginAuth";
 import { AuthUserDetails } from "../../Auth/UsenAuthInfo/UserInfo";
@@ -63,7 +63,7 @@ const navlinks = [
 ];
 
 export default function NavBar() {
-  const { isAuth, login, logout } = useContext(LoginAuth);
+  const { isAuth,  logout } = useContext(LoginAuth);
   const { deleteUserInfo, userDetails } = useContext(AuthUserDetails);
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -82,7 +82,7 @@ export default function NavBar() {
       <Flex align="center" justify="space-between">
         <Box>
           <Heading as="h1" size="md">
-            My Website
+          Yes Bank
           </Heading>
         </Box>
         <Box>
