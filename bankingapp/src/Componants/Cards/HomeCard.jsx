@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import HomeCardContent from "./HomeCardContent";
-
+import axios from "axios";
+/* 
 const HomeCardArray = [
   {
     id: 1,
@@ -48,8 +49,31 @@ const HomeCardArray = [
     Path: "/intreastrate",
   },
 ];
+*/
 
+const getData = async () => {
+let responce =   await axios({
+    method: "get",
+    baseURL: `${process.env.REACT_APP_JSON_SERVER_PORT}`,
+    url: `/sevices`,
+})
+  let data = responce;
+  return data
+};
+// const HomeCardArray = `${process.env.REACT_APP_JSON_SERVER_PORT}/sevices`;
 export default function HomeCard() {
+  const [cardData, setCardData] = useState([]);
+
+  const fetchData = () => {
+    getData().then((res) => {
+      console.log(res)
+      setCardData(res.data)
+    })
+  };
+
+  useEffect(() => {
+    fetchData()
+  }, []);
   const settings = {
     dots: true,
     infinite: false,
@@ -90,7 +114,7 @@ export default function HomeCard() {
   return (
     <Slider {...settings}>
       {/* <Stack direction={"row"} m={5} overflowX="auto"> */}
-      {HomeCardArray.map((carditems) => (
+      {cardData?.map((carditems) => (
         <HomeCardContent {...carditems} key={carditems.title} />
       ))}
     </Slider>

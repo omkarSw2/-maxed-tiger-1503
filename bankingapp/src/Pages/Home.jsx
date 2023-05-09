@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <Heading>{isAuth ? "Yes" : "No"}</Heading>
+      {/* <Heading>{isAuth ? "Yes" : "No"}</Heading>
       {isAuth ? (
         <Button onClick={() => logout()} colorScheme="red">
           logout
@@ -32,7 +32,7 @@ export default function Home() {
         <Button onClick={() => login()} colorScheme="blue">
           login
         </Button>
-      )}
+      )} */}
       {/* <Button onClick={ToastMessage}>ToastMessage Toast</Button> */}
       <Container maxW="90%">
         <SimpleSlider />
